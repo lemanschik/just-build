@@ -1,50 +1,35 @@
-
 # TypeScript
 
-[![GitHub Actions CI](https://github.com/microsoft/TypeScript/workflows/CI/badge.svg)](https://github.com/microsoft/TypeScript/actions?query=workflow%3ACI)
-[![Devops Build Status](https://dev.azure.com/typescript/TypeScript/_apis/build/status/Typescript/node10)](https://dev.azure.com/typescript/TypeScript/_build?definitionId=7)
-[![npm version](https://badge.fury.io/js/typescript.svg)](https://www.npmjs.com/package/typescript)
-[![Downloads](https://img.shields.io/npm/dm/typescript.svg)](https://www.npmjs.com/package/typescript)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/microsoft/TypeScript/badge)](https://api.securityscorecards.dev/projects/github.com/microsoft/TypeScript)
+## Usecases
+Mainly used to Transiple Legacy TypeScript and NodeJS Modules into ECMAScript it allows to transpil nodeJs modules via the bundler config and build flag
+into ESMModules with Type Declarations. it does so via creation of a TypeScript Bundle via a tsconfig.json and a additional tsconfig.types.js tsconfig.module.js they get used together with the tsconfig.json and allowJs checkJs flags to Produce ECMAScript Modules with the correct type exports
+added to the extra declaration d.ts file with the same name as the module 
 
+module-name/tsconfig.json,tsconfig.module.js tsconfig.types.js<ts> depending on your needs if you want dynamic resolve able types use js + JSDOC typedef if you hard transpile use .ts export types * from 'me' with moduleResolution: bundle
 
-[TypeScript](https://www.typescriptlang.org/) is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to readable, standards-based JavaScript. Try it out at the [playground](https://www.typescriptlang.org/play/), and stay up to date via [our blog](https://blogs.msdn.microsoft.com/typescript) and [Twitter account](https://twitter.com/typescript).
+[TypeScript](https://www.typescriptlang.org/) is a set of modules to transpil the esoteric typescript lang into ECMAScript ESNext as also
+contains vairus integration and tools for ECMAScript and JSDOC Components. It also got support for a own bundler package format called tsconfig.json
+the tsconfig.json is equal to a configurable package.json abstraction 
 
-Find others who are using TypeScript at [our community page](https://www.typescriptlang.org/community/).
+This exists mostly as dependency of the rollup loader which is able to load typescript packages aka tsconfig.json and typescript esoteric syntax into ECMAScript Modules.
 
-## Installing
+## CJS ES
+ESM Wrapper.
+```js
+// prepend 
+const cjsBundel = `exports.hi = 'uh'`
+const load = (cjsBundel) => new Function(`const module = { exports: {}};
+const { exports } = module;
+{${cjsBundel}}
+return Object.assign(module.exports,exports);`)
+// attach
 
-For the latest stable version:
-
-```bash
-npm install -D typescript
 ```
 
-For our nightly builds:
+## TypeCheck Individual Cached Modules
+tsconfig.json can form abstract module shims and even now index.types.ts exports *,{type b } from 'x'  works to export only the types after you got
+the cleaned ts.
 
-```bash
-npm install -D typescript@next
-```
-
-## Contribute
-
-There are many ways to [contribute](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md) to TypeScript.
-* [Submit bugs](https://github.com/microsoft/TypeScript/issues) and help us verify fixes as they are checked in.
-* Review the [source code changes](https://github.com/microsoft/TypeScript/pulls).
-* Engage with other TypeScript users and developers on [StackOverflow](https://stackoverflow.com/questions/tagged/typescript).
-* Help each other in the [TypeScript Community Discord](https://discord.gg/typescript).
-* Join the [#typescript](https://twitter.com/search?q=%23TypeScript) discussion on Twitter.
-* [Contribute bug fixes](https://github.com/microsoft/TypeScript/blob/main/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see
-the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
-
-## Documentation
-
-*  [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-*  [Programming handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-*  [Homepage](https://www.typescriptlang.org/)
 
 ## Roadmap
 

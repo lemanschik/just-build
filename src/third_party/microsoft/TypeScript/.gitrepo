@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/lemanschik/src_typescript
 	branch = temp
-	commit = ca6a360684ba94745c9a2a5da4c45b139aedb4fc
-	parent = d2675a15f1715d31f0ce8340967e3faa97fc7055
+	commit = 7961bcadc47863d062a07bb85e3bd7d863e3f10d
+	parent = d6c4961e66b0e904d890be74acb1b97655b78cd7
 	method = merge
 	cmdver = 0a31831
