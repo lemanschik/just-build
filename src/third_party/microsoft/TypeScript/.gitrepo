@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/stealify/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/lemanschik/src_typescript
+	branch = temp
+	commit = a205295ff8d499f4572ec65bdf923822c035b24d
+	parent = d2675a15f1715d31f0ce8340967e3faa97fc7055
+	method = merge
+	cmdver = 0a31831
