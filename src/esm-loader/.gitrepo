@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/lemanschik/esm-loader
 	branch = master
-	commit = d214abab78b85fa67632db666e1ab2be873bf909
-	parent = e234d8fd74fcb60ee53a5642a092c7fc34171c7d
+	commit = 9630b0f99dbbb7dd509677637e3d6780536b16af
+	parent = ffc1fa366a6c5222760324bcb0c698e88cbd655a
 	method = merge
 	cmdver = 0a31831
