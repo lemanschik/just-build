@@ -1,3 +1,5 @@
+//TODO: see: https://github.com/lemanschik/just-build/tree/main/src/just-build
+//TODO: see: https://github.com/lemanschik/just-build/tree/main/just.d.ts
 const boot = () => {
   function wrapHRTime (just) {
     const { hrtime } = just
