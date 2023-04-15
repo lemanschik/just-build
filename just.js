@@ -103,16 +103,16 @@ const boot = () => {
   }
 
   function wrapLibrary (cache = {}) {
-    function loadLibrary (path, name) {
+    const loadLibrary = (path, name) => {
       if (cache[name]) return cache[name]
-      if (!just.sys.dlopen) return {}
-      const handle = just.sys.dlopen(path, just.sys.RTLD_LAZY)
+      if (!globalThis.just.sys.dlopen) return {}
+      const handle = globalThis.just.sys.dlopen(path, just.sys.RTLD_LAZY)
       if (!handle) return {}
-      const ptr = just.sys.dlsym(handle, `_register_${name}`)
+      const ptr = globalThis.just.sys.dlsym(handle, `_register_${name}`)
       if (!ptr) return {}
-      const lib = just.load(ptr)
+      const lib = globalThis.just.load(ptr)
       if (!lib) return {}
-      lib.close = () => just.sys.dlclose(handle)
+      lib.close = () => globalThis.just.sys.dlclose(handle)
       lib.type = 'module-external'
       cache[name] = lib
       return lib
@@ -262,63 +262,65 @@ const boot = () => {
     }
 
     // load the builtin modules
-    just.vm = library('vm').vm
-    just.loop = library('epoll').epoll
-    just.fs = library('fs').fs
-    just.net = library('net').net
-    just.sys = library('sys').sys
-    just.env = wrapEnv(just.sys.env)
+    globalThis.just.vm = library('vm').vm
+    globalThis.just.loop = library('epoll').epoll
+    globalThis.just.fs = library('fs').fs
+    globalThis.just.net = library('net').net
+    globalThis.just.sys = library('sys').sys
+    globalThis.just.env = wrapEnv(just.sys.env)
 
     // todo: what about sharedarraybuffers?
     ArrayBuffer.prototype.writeString = function(str, off = 0) { // eslint-disable-line
-      return just.sys.writeString(this, str, off)
+      return globalThis.just.sys.writeString(this, str, off)
     }
     ArrayBuffer.prototype.readString = function (len = this.byteLength, off = 0) { // eslint-disable-line
-      return just.sys.readString(this, len, off)
+      return globalThis.just.sys.readString(this, len, off)
     }
     ArrayBuffer.prototype.getAddress = function () { // eslint-disable-line
-      return just.sys.getAddress(this)
+      return globalThis.just.sys.getAddress(this)
     }
     ArrayBuffer.prototype.copyFrom = function (src, off = 0, len = src.byteLength, soff = 0) { // eslint-disable-line
-      return just.sys.memcpy(this, src, off, len, soff)
+      return globalThis.just.sys.memcpy(this, src, off, len, soff)
     }
-    ArrayBuffer.fromString = str => just.sys.calloc(1, str)
-    String.byteLength = just.sys.utf8Length
+    ArrayBuffer.fromString = str => globalThis.just.sys.calloc(1, str)
+    String.byteLength = globalThis.just.sys.utf8Length
 
     const { requireNative, require } = wrapRequire(cache)
 
-    just.SystemError = SystemError
-    Object.assign(just.fs, requireNative('fs'))
-    just.config = requireNative('config')
-    just.path = requireNative('path')
-    just.factory = requireNative('loop').factory
-    just.factory.loop = just.factory.create(128)
-    just.process = requireNative('process')
-    just.setTimeout = setTimeout
-    just.setInterval = setInterval
-    just.clearTimeout = just.clearInterval = clearTimeout
-    just.library = library
-    just.requireNative = requireNative
-    just.net.setNonBlocking = setNonBlocking
-    just.require = global.require = require
-    just.require.cache = cache
-    just.hrtime = wrapHRTime(just)
-    just.memoryUsage = wrapMemoryUsage(just.memoryUsage)
-    just.cpuUsage = wrapCpuUsage(just.sys.cpuUsage)
-    just.rUsage = wrapgetrUsage(just.sys.getrUsage)
-    just.heapUsage = wrapHeapUsage(just.sys.heapUsage)
+    
+    Object.assign(globalThis.just.fs, requireNative('fs'))
+    
+    globalThis.just.SystemError = SystemError
+    globalThis.just.config = requireNative('config')
+    globalThis.just.path = requireNative('path')
+    globalThis.just.factory = requireNative('loop').factory
+    globalThis.just.factory.loop = just.factory.create(128)
+    globalThis.just.process = requireNative('process')
+    globalThis.just.setTimeout = setTimeout
+    globalThis.just.setInterval = setInterval
+    globalThis.just.clearTimeout = just.clearInterval = clearTimeout
+    globalThis.just.library = library
+    globalThis.just.requireNative = requireNative
+    globalThis.just.net.setNonBlocking = setNonBlocking
+    globalThis.just.require = global.require = require
+    globalThis.just.require.cache = cache
+    globalThis.just.hrtime = wrapHRTime(just)
+    globalThis.just.memoryUsage = wrapMemoryUsage(just.memoryUsage)
+    globalThis.just.cpuUsage = wrapCpuUsage(just.sys.cpuUsage)
+    globalThis.just.rUsage = wrapgetrUsage(just.sys.getrUsage)
+    globalThis.just.heapUsage = wrapHeapUsage(just.sys.heapUsage)
 
     function startup () {
-      if (!just.args.length) return true
-      if (just.workerSource) {
+      if (!globalThis.just.args.length) return true
+      if (globalThis.just.workerSource) {
         const scriptName = just.path.join(just.sys.cwd(), just.args[0] || 'thread')
-        just.main = just.workerSource
-        delete just.workerSource
+        globalThis.just.main = just.workerSource
+        delete globalThis.just.workerSource
         just.vm.runScript(just.main, scriptName)
         return
       }
       if (just.args.length === 1) {
-        const replModule = just.require('repl')
+        const replModule = globalThis.just.require('repl')
         if (!replModule) {
           throw new Error('REPL not enabled. Maybe I should be a standalone?')
         }
@@ -330,51 +332,51 @@ const boot = () => {
         // todo: allow streaming in multiple scripts with a separator and running them all
         const buf = new ArrayBuffer(4096)
         const chunks = []
-        let bytes = just.net.read(just.sys.STDIN_FILENO, buf, 0, buf.byteLength)
+        let bytes = globalThis.just.net.read(just.sys.STDIN_FILENO, buf, 0, buf.byteLength)
         while (bytes > 0) {
           chunks.push(buf.readString(bytes))
-          bytes = just.net.read(just.sys.STDIN_FILENO, buf, 0, buf.byteLength)
+          bytes = globalThis.just.net.read(just.sys.STDIN_FILENO, buf, 0, buf.byteLength)
         }
-        just.vm.runScript(chunks.join(''), 'stdin')
+        globalThis.just.vm.runScript(chunks.join(''), 'stdin')
         return
       }
       if (just.args[1] === 'eval') {
-        just.vm.runScript(just.args[2], 'eval')
+        globalThis.just.vm.runScript(globalThis.just.args[2], 'eval')
         return
       }
       if (just.args[1] === 'build') {
-        const buildModule = just.require('build')
+        const buildModule = globalThis.just.require('build')
         if (!buildModule) throw new Error('Build not Available')
         let config
         if (just.opts.config) {
-          config = require(just.args[2]) || {}
+          config = require(globalThis.just.args[2]) || {}
         } else {
           if (just.args.length > 2) {
-            config = just.require('configure').run(just.args[2], opts)
+            config = just.require('configure').run(globalThis.just.args[2], opts)
           } else {
-            config = require(just.args[2] || 'config.json') || require('config.js') || {}
+            config = require(globalThis.just.args[2] || 'config.json') || require('config.js') || {}
           }
         }
         buildModule.run(config, opts)
           .then(cfg => {
-            if (opts.dump) just.print(JSON.stringify(cfg, null, '  '))
+            if (opts.dump) globalThis.just.print(JSON.stringify(cfg, null, '  '))
           })
-          .catch(err => just.error(err.stack))
+          .catch(err => globalThis.just.error(err.stack))
         return
       }
       if (just.args[1] === 'init') {
-        const buildModule = just.require('build')
+        const buildModule = globalThis.just.require('build')
         if (!buildModule) throw new Error('Build not Available')
         buildModule.init(just.args[2] || 'hello')
         return
       }
       if (just.args[1] === 'clean') {
-        const buildModule = just.require('build')
+        const buildModule = globalThis.just.require('build')
         if (!buildModule) throw new Error('Build not Available')
         buildModule.clean()
         return
       }
-      const scriptName = just.path.join(just.sys.cwd(), just.args[1])
+      const scriptName = globalThis.just.path.join(just.sys.cwd(), just.args[1])
       just.main = just.fs.readFile(just.args[1])
       if (opts.esm) {
         just.vm.runModule(just.main, scriptName)
@@ -383,7 +385,7 @@ const boot = () => {
       }
     }
     if (opts.inspector) {
-      const inspectorLib = just.library('inspector')
+      const inspectorLib = globalThis.just.library('inspector')
       if (!inspectorLib) throw new SystemError('inspector module is not enabled')
       just.inspector = inspectorLib.inspector
       // TODO: this is ugly
@@ -396,31 +398,31 @@ const boot = () => {
         arch: 'x64',
         env: just.env()
       }
-      const _require = global.require
-      global.require = (name, path) => {
-        if (name === 'module') return ['fs', 'process', 'repl']
+      const _require = globalThis.require
+      globalThis.require = (name, path) => {
+        if (name === 'module') return ['fs', 'process', 'repl','sys']
         return _require(name, path)
       }
-      global.inspector = just.inspector.createInspector({
+      global.inspector = globalThis.just.inspector.createInspector({
         title: 'Just!',
         onReady: () => {
-          if (debugStarted) return just.factory.run()
+          if (debugStarted) return globalThis.just.factory.run()
           debugStarted = true
-          if (!startup()) just.factory.run()
+          if (!startup()) globalThis.just.factory.run()
         }
       })
-      just.inspector.enable()
-      just.factory.run(1)
+      globalThis.just.inspector.enable()
+      globalThis.just.factory.run(1)
       return
     }
-    if (!startup()) just.factory.run()
+    if (!startup()) globalThis.just.factory.run()
   }
 
-  const opts = parseArgs(just.args)
-  just.args = opts.args
-  just.opts = opts
-  if (opts.bare) {
-    just.load('vm').vm.runScript(just.args[1], 'eval')
+  globalThis.just.opts = parseArgs(globalThis.just.args)
+  globalThis.just.args = globalThis.just.opts.args
+   
+  if (globalThis.just.opts.bare) {
+    globalThis.just.load('vm').vm.runScript(globalThis.just.args[1], 'eval')
   } else {
     main(opts)
   }
