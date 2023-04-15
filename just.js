@@ -1,4 +1,4 @@
-(function () {
+const boot = () => {
   function wrapHRTime (just) {
     const { hrtime } = just
     const u64 = hrtime()
@@ -422,4 +422,6 @@
   } else {
     main(opts)
   }
-})()
+};
+
+boot();
