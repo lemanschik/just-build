@@ -1,0 +1,4 @@
+{
+  "exclude": ["test"],
+  "extension": [".ts", ""]
+}

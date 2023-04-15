@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"noEmitOnError": true,
+		"noUnusedParameters": true,
+		"pretty": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2020",
+		"useDefineForClassFields": false
+	},
+	"include": ["typings/**/*.d.ts", "src", "cli", "browser", "rollup.config.ts"],
+	"exclude": ["dist", "node_modules", "test/typescript", "browser/dist"]
+}
