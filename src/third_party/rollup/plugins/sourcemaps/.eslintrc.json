@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "curly": ["error", "all"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier/@typescript-eslint"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ]
+}

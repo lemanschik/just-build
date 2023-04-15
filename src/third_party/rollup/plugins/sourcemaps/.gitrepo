@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/stealify/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/lemanschik/rollup-plugin-sourcemaps
+	branch = master
+	commit = f3964bc3be2d2385b572bf0e0812f63374f076eb
+	parent = c8c0e860f02d236476933cbd776578b60d09146d
+	method = merge
+	cmdver = 0a31831
