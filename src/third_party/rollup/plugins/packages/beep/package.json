@@ -1,0 +1,60 @@
+{
+  "name": "@rollup/plugin-beep",
+  "version": "1.0.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "A Rollup plugin which beeps on errors and warnings",
+  "license": "MIT",
+  "repository": {
+    "url": "rollup/plugins",
+    "directory": "packages/beep"
+  },
+  "author": "shellscape",
+  "homepage": "https://github.com/rollup/plugins/tree/master/packages/beep",
+  "bugs": "https://github.com/rollup/plugins/issues",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+    "ci:lint": "pnpm lint",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "ci:test": "ava --verbose",
+    "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+    "test": "ava"
+  },
+  "files": [
+    "lib/",
+    "types/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "beep",
+    "plugin",
+    "rollup"
+  ],
+  "peerDependencies": {
+    "rollup": "^1.20.0||^2.0.0||^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "rollup": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "rollup": "^3.2.3",
+    "strip-ansi": "^7.0.1"
+  },
+  "types": "types/index.d.ts",
+  "ava": {
+    "files": [
+      "!**/fixtures/**",
+      "!**/helpers/**",
+      "!**/output/**",
+      "!**/recipes/**"
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+# @rollup/plugin-dynamic-import-vars ChangeLog
+
+## v2.0.3
+
+_2023-01-20_
+
+### Bugfixes
+
+- fix: types should come first in exports [#1403](https://github.com/rollup/plugins/pull/1403)
+
+## v2.0.2
+
+_2022-12-17_
+
+### Bugfixes
+
+- fix: update magic-string [#1373](https://github.com/rollup/plugins/pull/1373)
+
+## v2.0.1
+
+_2022-10-21_
+
+### Updates
+
+- chore: update rollup dependencies ([3038271](https://github.com/rollup/plugins/commit/303827191ede6b2e4eade96c6968ed16a587683f))
+
+## v2.0.0
+
+_2022-10-09_
+
+### Breaking Changes
+
+- fix: prepare for Rollup 3 [#1297](https://github.com/rollup/plugins/pull/1297)
+
+## v1.4.4
+
+_2022-08-02_
+
+### Bugfixes
+
+- fix: exclude external imports (#1193)
+
+## v1.4.3
+
+_2022-04-19_
+
+### Bugfixes
+
+- fix: parameter types for dynamicImportToGlob (#1166)
+
+## v1.4.2
+
+_2021-12-28_
+
+### Updates
+
+- refactor: update, swap dependencies (#1073)
+
+## v1.4.1
+
+_2021-10-19_
+
+### Bugfixes
+
+- fix: ignore data uris (#1021)
+
+## v1.4.0
+
+_2021-07-26_
+
+### Features
+
+- feat: add typings (#898)
+
+## v1.3.0
+
+_2021-07-15_
+
+### Bugfixes
+
+- fix: allow ./${var}.suffix.js (#834)
+- fix: Give default promise rejection timing parity with cases (#825)
+
+## v1.2.0
+
+_2021-07-15_
+
+### Notes
+
+This release is identical to v1.3.0. Duplicate versions were created as the result of erroneous Workflows.
+
+## v1.1.7
+
+_2021-07-15_
+
+### Bugfixes
+
+- fix
+- fix
+
+## v1.1.1
+
+_2020-11-30_
+
+### Updates
+
+- docs: fix typo in README.md (#659)
+
+## v1.1.0
+
+_2020-08-13_
+
+### Features
+
+- feat: add support for dynamic expressions with concat (#495)
+
+### Updates
+
+- chore: update dependencies (26f9b6c)
+
+## v1.0.0
+
+_2020-07-06_
+
+- First release
