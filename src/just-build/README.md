@@ -1,0 +1,489 @@
+globalThis
+```
+[
+  "just":[
+  {
+    "print": []
+  },
+  {
+    "error": []
+  },
+  {
+    "exit": []
+  },
+  {
+    "pid": []
+  },
+  {
+    "chdir": []
+  },
+  {
+    "sleep": []
+  },
+  {
+    "hrtime": []
+  },
+  {
+    "version": [
+      "just",
+      "v8",
+      "kernel"
+    ]
+  },
+  {
+    "memoryUsage": []
+  },
+  {
+    "load": []
+  },
+  {
+    "builtin": []
+  },
+  {
+    "builtins": []
+  },
+  {
+    "modules": []
+  },
+  {
+    "start": []
+  },
+  {
+    "args": [
+      "0"
+    ]
+  },
+  {
+    "opts": [
+      "args"
+    ]
+  },
+  {
+    "vm": [
+      "compile",
+      "runScript",
+      "runModule",
+      "runInContext",
+      "compileInContext",
+      "compileAndRunInContext",
+      "createContext",
+      "enterContext",
+      "exitContext"
+    ]
+  },
+  {
+    "loop": [
+      "control",
+      "create",
+      "wait",
+      "EPOLL_CTL_ADD",
+      "EPOLL_CTL_MOD",
+      "EPOLL_CTL_DEL",
+      "EPOLLET",
+      "EPOLLIN",
+      "EPOLLOUT",
+      "EPOLLERR",
+      "EPOLLHUP",
+      "EPOLLEXCLUSIVE",
+      "EPOLLONESHOT",
+      "EPOLL_CLOEXEC"
+    ]
+  },
+  {
+    "fs": [
+      "open",
+      "unlink",
+      "symlink",
+      "ioctl",
+      "rmdir",
+      "ftruncate",
+      "rename",
+      "mkdir",
+      "fstat",
+      "lseek",
+      "readdir",
+      "chdir",
+      "mount",
+      "umount",
+      "mknod",
+      "mkfifo",
+      "realpath",
+      "fdatasync",
+      "fsync",
+      "chmod",
+      "chown",
+      "read",
+      "write",
+      "close",
+      "O_RDONLY",
+      "O_WRONLY",
+      "O_RDWR",
+      "O_CREAT",
+      "O_EXCL",
+      "O_APPEND",
+      "O_SYNC",
+      "O_TRUNC",
+      "S_IRUSR",
+      "S_IWUSR",
+      "S_IXUSR",
+      "S_IRGRP",
+      "S_IWGRP",
+      "S_IXGRP",
+      "S_IROTH",
+      "S_IWOTH",
+      "S_IXOTH",
+      "S_IRWXO",
+      "S_IRWXG",
+      "S_IRWXU",
+      "DT_BLK",
+      "DT_CHR",
+      "DT_DIR",
+      "DT_FIFO",
+      "DT_LNK",
+      "DT_REG",
+      "DT_SOCK",
+      "DT_UNKNOWN",
+      "SEEK_SET",
+      "SEEK_CUR",
+      "SEEK_END",
+      "EPERM",
+      "ENOENT",
+      "ESRCH",
+      "EINTR",
+      "EIO",
+      "ENXIO",
+      "E2BIG",
+      "ENOEXEC",
+      "EBADF",
+      "ECHILD",
+      "EAGAIN",
+      "ENOMEM",
+      "EACCES",
+      "EFAULT",
+      "ENOTBLK",
+      "EBUSY",
+      "EEXIST",
+      "EXDEV",
+      "ENODEV",
+      "ENOTDIR",
+      "EISDIR",
+      "EINVAL",
+      "ENFILE",
+      "ENOTTY",
+      "ETXTBSY",
+      "EFBIG",
+      "ENOSPC",
+      "ESPIPE",
+      "EROFS",
+      "EMLINK",
+      "EPIPE",
+      "EDOM",
+      "ERANGE",
+      "S_IFMT",
+      "S_IFSOCK",
+      "S_IFLNK",
+      "S_IFREG",
+      "S_IFBLK",
+      "S_IFDIR",
+      "S_IFCHR",
+      "S_IFIFO",
+      "UTIME_NOW",
+      "UTIME_OMIT",
+      "MS_MGC_VAL",
+      "MS_MGC_MSK",
+      "readFile",
+      "readFileBytes",
+      "writeFile",
+      "getStats",
+      "getStat",
+      "fileType",
+      "checkMode",
+      "checkFlag",
+      "readDir",
+      "copyFile",
+      "isFile",
+      "isDir",
+      "makeNode",
+      "getModified"
+    ]
+  },
+  {
+    "net": [
+      "socket",
+      "setsockopt",
+      "getsockopt",
+      "listen",
+      "connect",
+      "socketpair",
+      "pipe",
+      "bind",
+      "bindInterface",
+      "getMacAddress",
+      "accept",
+      "accept4",
+      "read",
+      "dup",
+      "seek",
+      "recv",
+      "write",
+      "splice",
+      "sendfile",
+      "writeString",
+      "send",
+      "sendString",
+      "close",
+      "shutdown",
+      "getsockname",
+      "getpeername",
+      "AF_INET",
+      "AF_UNIX",
+      "AF_INET6",
+      "AF_NETLINK",
+      "AF_PACKET",
+      "AF_RDS",
+      "AF_PPPOX",
+      "AF_BLUETOOTH",
+      "AF_ALG",
+      "AF_VSOCK",
+      "AF_LLC",
+      "AF_IB",
+      "AF_MPLS",
+      "AF_CAN",
+      "ETH_P_ALL",
+      "PACKET_BROADCAST",
+      "PACKET_MULTICAST",
+      "PACKET_OTHERHOST",
+      "PACKET_OUTGOING",
+      "PACKET_HOST",
+      "PACKET_LOOPBACK",
+      "SOCK_STREAM",
+      "SOCK_DGRAM",
+      "SOCK_RAW",
+      "SOCK_SEQPACKET",
+      "SOCK_RDM",
+      "PF_PACKET",
+      "SOCK_NONBLOCK",
+      "SOCK_CLOEXEC",
+      "SOL_SOCKET",
+      "SO_ERROR",
+      "SO_REUSEADDR",
+      "SO_REUSEPORT",
+      "SO_ATTACH_FILTER",
+      "SO_INCOMING_CPU",
+      "IPPROTO_TCP",
+      "IPPROTO_UDP",
+      "IPPROTO_ICMP",
+      "IPPROTO_IGMP",
+      "IPPROTO_IPV6",
+      "IPPROTO_AH",
+      "IPPROTO_ENCAP",
+      "IPPROTO_COMP",
+      "IPPROTO_PIM",
+      "IPPROTO_SCTP",
+      "IPPROTO_UDPLITE",
+      "IPPROTO_RAW",
+      "TCP_NODELAY",
+      "SO_KEEPALIVE",
+      "SOMAXCONN",
+      "O_NONBLOCK",
+      "O_CLOEXEC",
+      "EAGAIN",
+      "EWOULDBLOCK",
+      "EINTR",
+      "SEEK_SET",
+      "SEEK_CUR",
+      "SEEK_END",
+      "SHUT_RD",
+      "SHUT_WR",
+      "SHUT_RDWR",
+      "setNonBlocking"
+    ]
+  },
+  {
+    "sys": [
+      "getuid",
+      "setuid",
+      "getgid",
+      "setgid",
+      "calloc",
+      "setTerminalFlags",
+      "getTerminalFlags",
+      "shmopen",
+      "shmunlink",
+      "fexecve",
+      "readString",
+      "writeString",
+      "writeCString",
+      "getAddress",
+      "getAddressShared",
+      "fcntl",
+      "memcpy",
+      "sleep",
+      "utf8Length",
+      "readMemory",
+      "writePointer",
+      "bufferInfo",
+      "timer",
+      "heapUsage",
+      "sharedMemoryUsage",
+      "heapObjectStatistics",
+      "heapCodeStatistics",
+      "memfdCreate",
+      "pid",
+      "ppid",
+      "setpgid",
+      "getpgrp",
+      "tid",
+      "fork",
+      "exec",
+      "getsid",
+      "setsid",
+      "errno",
+      "getchar",
+      "putchar",
+      "strerror",
+      "cpuUsage",
+      "getrUsage",
+      "hrtime",
+      "cwd",
+      "env",
+      "ioctl",
+      "spawn",
+      "waitpid",
+      "runMicroTasks",
+      "nextTick",
+      "exit",
+      "kill",
+      "usleep",
+      "pages",
+      "nanosleep",
+      "mmap",
+      "munmap",
+      "mremap",
+      "msync",
+      "reboot",
+      "getenv",
+      "setenv",
+      "unsetenv",
+      "isatty",
+      "CLOCK_MONOTONIC",
+      "TFD_NONBLOCK",
+      "TFD_CLOEXEC",
+      "FD_CLOEXEC",
+      "O_CLOEXEC",
+      "F_GETFL",
+      "F_SETFL",
+      "F_GETFD",
+      "F_SETFD",
+      "STDIN_FILENO",
+      "STDOUT_FILENO",
+      "STDERR_FILENO",
+      "PROT_READ",
+      "PROT_WRITE",
+      "MAP_SHARED",
+      "MAP_PRIVATE",
+      "MAP_ANONYMOUS",
+      "RB_AUTOBOOT",
+      "RB_HALT_SYSTEM",
+      "RB_POWER_OFF",
+      "RB_SW_SUSPEND",
+      "TIOCNOTTY",
+      "TIOCSCTTY",
+      "WNOHANG",
+      "WUNTRACED",
+      "WCONTINUED",
+      "RUSAGE_SELF",
+      "RUSAGE_THREAD",
+      "ENOMEM",
+      "EINVAL",
+      "EFAULT",
+      "MS_ASYNC",
+      "MS_SYNC",
+      "MS_INVALIDATE",
+      "EAGAIN",
+      "O_NONBLOCK",
+      "BYTE_ORDER",
+      "LITTLE_ENDIAN",
+      "BIG_ENDIAN",
+      "cpus",
+      "physicalPages",
+      "pageSize"
+    ]
+  },
+  {
+    "env": []
+  },
+  {
+    "SystemError": []
+  },
+  null,
+  {
+    "path": [
+      "join",
+      "baseName",
+      "normalize",
+      "fileName",
+      "extName"
+    ]
+  },
+  {
+    "factory": [
+      "loops",
+      "paused",
+      "create",
+      "run",
+      "stop",
+      "shutdown",
+      "loop"
+    ]
+  },
+  {
+    "process": [
+      "launch",
+      "watch"
+    ]
+  },
+  {
+    "setTimeout": []
+  },
+  {
+    "setInterval": []
+  },
+  {
+    "clearInterval": []
+  },
+  {
+    "clearTimeout": []
+  },
+  {
+    "library": []
+  },
+  {
+    "requireNative": []
+  },
+  {
+    "require": [
+      "cache"
+    ]
+  },
+  {
+    "cpuUsage": []
+  },
+  {
+    "rUsage": []
+  },
+  {
+    "heapUsage": []
+  }
+],
+  "global",
+  "onUnhandledRejection",
+  "require"
+]
+```
+
+
+How to generate?
+```
+Object.keys(globalThis.just).map(k=>globalThis.just[k] && ({ [k]: Object.keys(globalThis.just[k]) }) )
+```
