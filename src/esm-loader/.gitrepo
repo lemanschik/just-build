@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/stealify/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/lemanschik/esm-loader
+	branch = master
+	commit = d214abab78b85fa67632db666e1ab2be873bf909
+	parent = e234d8fd74fcb60ee53a5642a092c7fc34171c7d
+	method = merge
+	cmdver = 0a31831
