@@ -254,9 +254,9 @@ const boot = () => {
     const { library, cache } = wrapLibrary()
     let debugStarted = false
 
-    delete global.console
+    delete globalThis.console
 
-    global.onUnhandledRejection = err => {
+    globalThis.onUnhandledRejection = err => {
       just.error('onUnhandledRejection')
       if (err) just.error(err.stack)
     }
@@ -319,7 +319,7 @@ const boot = () => {
         just.vm.runScript(just.main, scriptName)
         return
       }
-      if (just.args.length === 1) {
+      if (globalThis.just.args.length === 1) {
         const replModule = globalThis.just.require('repl')
         if (!replModule) {
           throw new Error('REPL not enabled. Maybe I should be a standalone?')
@@ -327,7 +327,7 @@ const boot = () => {
         replModule.repl()
         return
       }
-      if (just.args[1] === '--') {
+      if (globalThis.just.args[1] === '--') {
         // todo: limit size
         // todo: allow streaming in multiple scripts with a separator and running them all
         const buf = new ArrayBuffer(4096)
@@ -340,15 +340,15 @@ const boot = () => {
         globalThis.just.vm.runScript(chunks.join(''), 'stdin')
         return
       }
-      if (just.args[1] === 'eval') {
+      if (globalThis.just.args[1] === 'eval') {
         globalThis.just.vm.runScript(globalThis.just.args[2], 'eval')
         return
       }
-      if (just.args[1] === 'build') {
+      if (globalThis.just.args[1] === 'build') {
         const buildModule = globalThis.just.require('build')
         if (!buildModule) throw new Error('Build not Available')
         let config
-        if (just.opts.config) {
+        if (globalThis.just.opts.config) {
           config = require(globalThis.just.args[2]) || {}
         } else {
           if (just.args.length > 2) {
