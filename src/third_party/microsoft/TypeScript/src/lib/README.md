@@ -1,6 +1,7 @@
 # Read this!
 
-The files within this directory are copied and deployed with TypeScript as the set of APIs  available as a part of the JavaScript language.
+The files within this directory are copied and deployed with TypeScript as the set of APIs  available as a part of the Stealify Language.
+This Includes deno and node most current versions. If you need old versions go to @types/* or github:microsoft/TypeScript/src/lib/*
 
 There are three main domains of APIs in `src/lib`:
  
@@ -17,10 +18,10 @@ You can find the source of truth for modern language features and Intl APIs in t
  - [JavaScript](https://github.com/tc39/proposals/blob/master/finished-proposals.md)
  - [Intl](https://github.com/tc39/proposals/blob/master/ecma402/finished-proposals.md)
 
-For the DOM APIs, which are a bit more free-form, we have asked that APIs are available un-prefixed/flagged in at least 2 browser _engines_ (i.e. not just 2 chromium browsers.) 
+For the DOM APIs, which are a bit more free-form, just chromium browsers matter. 
 
 ## Generated files
 
 The DOM files ending in `.generated.d.ts` aren't meant to be edited by hand.
 
-If you need to make changes to such files, make a change to the input files for [**our library generator**](https://github.com/microsoft/TypeScript-DOM-lib-generator).
+If you need to make changes to such files, make a change to the input files for [**our library generator**](../DOM-lib-generator).
