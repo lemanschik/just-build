@@ -1,0 +1,14 @@
+# Basic dependabot.yml file
+# https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/enabling-and-disabling-version-updates
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates every month
+    schedule:
+      interval: "monthly"
+    # Bump versions only in package-lock.json
+    versioning-strategy: "lockfile-only"

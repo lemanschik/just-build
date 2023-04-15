@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/stealify/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/microsoft/TypeScript-DOM-lib-generator
+	branch = main
+	commit = c36e4364117a85b8df8f57da3f0149eeb123fb09
+	parent = d5e6c48604528e9dcea5bdad0a48abe740571644
+	method = merge
+	cmdver = 0a31831
